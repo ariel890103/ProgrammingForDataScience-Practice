@@ -1,0 +1,72 @@
+---
+title: "Untitled"
+author: "林茂廷"
+date: "10/23/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(purrr)
+# pluck() supports integer positions, string names, and functions.
+# Using functions, you can easily extend pluck(). Let's create a
+# list of data structures:
+obj1 <- list("a", list(1, elt = "foobar"))
+obj2 <- list("b", list(2, elt = "foobaz"))
+x <- list(obj1, obj2)
+
+# And now an accessor for these complex data structures:
+my_element <- function(x) x[[2]]$elt
+
+# The accessor can then be passed to pluck:
+pluck(x, 1, my_element)
+pluck(x, 2, my_element)
+pluck(x,1:2, my_element)
+```
+
+```{r}
+# This technique is used for plucking into attributes with
+# attr_getter(). It takes an attribute name and returns a function
+# to access the attribute:
+obj1 <- structure("obj", obj_attr = "foo")
+obj2 <- structure("obj", obj_attr = "bar")
+x <- list(obj1, obj2)
+
+# pluck() is handy for extracting deeply into a data structure.
+# Here we'll first extract by position, then by attribute:
+pluck(x, 1, attr_getter("obj_attr"))  # From first object
+pluck(x, 2, attr_getter("obj_attr"))  # From second object
+
+
+# pluck() splices lists of arguments automatically. The following
+# pluck is equivalent to the one above:
+idx <- list(1, attr_getter("obj_attr"))
+pluck(x, idx)
+
+```
+
+```{r}
+require(stats)
+centre <- function(x, type) {
+  switch(type,
+         mean = mean(x),
+         median = median(x),
+         trimmed = mean(x, trim = .1))
+}
+x <- rcauchy(10)
+centre(x, "mean")
+centre(x, "median")
+centre(x, "trimmed")
+
+ccc <- c("b","QQ","a","A","bb")
+# note: cat() produces no output for NULL
+for(ch in ccc)
+    cat(ch,":", switch(EXPR = ch, a = 1, b = 2:3), "\n")
+for(ch in ccc)
+    cat(ch,":", switch(EXPR = ch, a =, A = 1, b = 2:3, "Otherwise: last"),"\n")
+
+```
+
