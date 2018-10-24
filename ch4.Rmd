@@ -25,6 +25,11 @@ classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
 ```
 
 ```{r}
+class(classSurvey)
+```
+
+
+```{r}
 StuDF <- data.frame(
   StuID=c(1,2,3,4,5),
   name=c("小明","大雄","胖虎","小新","大白"),
@@ -32,6 +37,30 @@ StuDF <- data.frame(
   )
 StuDF 
 ```
+
+```{r}
+as.character(StuDF$name) -> StuDF$name
+```
+
+```{r}
+StuDF <- data.frame(
+  StuID=c(1,2,3,4,5),
+  name=c("小明","大雄","胖虎","小新","大白"),
+  score=c(80,60,90,70,50),
+  stringsAsFactors = F
+  )
+StuDF 
+```
+
+```{r}
+names(StuDF) 
+colnames(StuDF)
+```
+
+```{r}
+rownames(StuDF)
+```
+
 ```{r}
 (StuDF$score >= 80)
 (StuDF$name=="小新")
