@@ -148,3 +148,56 @@ cc<-(classSurvey$性別 == "男" &
 cbind(aa,bb,cc)
 ```
 
+```{r}
+(classSurvey$性別 == "男" |
+classSurvey$本學期學分數 > 26)
+```
+
+```{r}
+classSurvey[
+  (classSurvey$性別 == "男" &
+classSurvey$本學期學分數 > 26),
+3
+]
+```
+
+```{r}
+aaa<-c(3,7,9,10)
+aaa[3]
+```
+```{r}
+StuDF
+```
+
+
+
+```{r}
+StuDF$StuID
+StuDF[,c("StuID")]
+StuDF$name
+StuDF[,c("name")]
+
+StuDF[,c("StuID","name")]
+
+## 無法用$一次取兩個元素
+# StuDF$c("StuID","name")
+```
+
+
+```{r}
+StuDF[c(1,4),c(2)]
+StuDF[,c(2)][c(1,4)]
+
+StuDF[,c(2)]->aa
+aa[c(1,4)]
+```
+
+
+```{r}
+StuDF$name[c(2)]
+```
+
+```{r}
+StuDF[,c(1,3)][c(1,4)]
+```
+
