@@ -137,3 +137,14 @@ StuDF[c(T,F,T,F,F),2]
 StuDF[which(StuDF$name == "小新"),3]
 ```
 
+```{r}
+aa<-(classSurvey$性別 == "男")
+
+bb<-(classSurvey$本學期學分數 > 20)
+
+cc<-(classSurvey$性別 == "男" & 
+    classSurvey$本學期學分數 > 20)
+
+cbind(aa,bb,cc)
+```
+
