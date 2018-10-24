@@ -116,4 +116,13 @@ StuDF[c(T,F,F,T,F),]
 a<-c(T,T,F,F,T,F,F)
 sum(a)
 ```
+```{r}
+StuDF
+```
+
+
+```{r}
+(StuDF$score >= 80)
+(StuDF$name == "小新")
+```
 
