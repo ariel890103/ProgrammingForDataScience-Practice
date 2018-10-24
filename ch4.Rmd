@@ -202,3 +202,9 @@ StuDF[,c(1,3)][c(1,4),]
 
 ```
 
+```{r}
+library(stringr)
+aa<-(str_sub(classSurvey$居住地行政區,1,3))
+classSurvey[aa == "台北市",3]
+```
+
