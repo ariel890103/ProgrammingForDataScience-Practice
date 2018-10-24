@@ -83,7 +83,37 @@ StuDF[c(1:3,5),]
 
 
 ```{r}
-(StuDF$score >= 80)
-(StuDF$name=="小新")
+StuDF[c(1,4),]
+```
+
+```{r}
+StuDF[-c(1,4),]
+```
+
+```{r}
+head(classSurvey,10)
+```
+
+```{r}
+StuDF
+```
+
+```{r}
+StuDF[1,2]
+```
+
+```{r}
+StuDF[c(T,F,F,F,F),c(F,T,F)]
+```
+
+
+```{r}
+StuDF[c(1,4),]
+StuDF[c(T,F,F,T,F),]
+```
+
+```{r}
+a<-c(T,T,F,F,T,F,F)
+sum(a)
 ```
 
