@@ -1,0 +1,12 @@
+---
+title: "ch5"
+author: "林茂廷"
+date: "10/31/2018"
+output: html_document
+---
+
+```{r}
+gsSurvey<-gs_key("1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE")  #download sheet information as an object
+classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
+```
+
