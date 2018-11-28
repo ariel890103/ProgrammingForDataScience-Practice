@@ -171,6 +171,11 @@ rowSums(hwGrades[,c(2:4)],na.rm=T)/3 -> hwGrades$平均成績
 從**hwGrades**資料中選出那些**學號**有出現在**classSurvey**資料**學號**中的子樣本。（結果必需是個dataframe，它有和**hwGrades**一樣的column數目，但row只包含那些符合條件的觀測樣本；row個數會縮小。）(hint: 參見1.Basic(3)題)
 
 ```{r ans16}
+(hwGrades$學號 %in% classSurvey$學號)-> aaa
+
+cbind(hwGrades$學號,aaa)
+
+hwGrades[aaa,]
 ```
 
 > 以下各題均以「有填」classSurvey的人為主，即hwGrades的縮小子樣本，我們稱此子樣本為hwGradeSubsample（你不一定要用這個名稱，但後面各題請把hwGradeSubsample替換成你用的dataframe名稱）。
