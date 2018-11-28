@@ -163,6 +163,8 @@ rowSums(hwGrades2) -> hwGrades2$交作業次數
 (hint: 使用`rowSums()`)
 
 ```{r ans15}
+rowSums(hwGrades[,c(2:4)],na.rm=T)/3 -> hwGrades$平均成績
+#cbind(hwGrades[,c(2:4)],rowSums(hwGrades[,c(2:4)],na.rm=T))
 ```
 
 ## 1.6 誰填了問卷？
