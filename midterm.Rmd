@@ -173,9 +173,7 @@ rowSums(hwGrades[,c(2:4)],na.rm=T)/3 -> hwGrades$平均成績
 ```{r ans16}
 (hwGrades$學號 %in% classSurvey$學號)-> aaa
 
-cbind(hwGrades$學號,aaa)
-
-hwGrades[aaa,]
+hwGrades[aaa,]-> hwGradeSubsample
 ```
 
 > 以下各題均以「有填」classSurvey的人為主，即hwGrades的縮小子樣本，我們稱此子樣本為hwGradeSubsample（你不一定要用這個名稱，但後面各題請把hwGradeSubsample替換成你用的dataframe名稱）。
@@ -185,11 +183,28 @@ hwGrades[aaa,]
 (hint: 使用`%in%`找出**classSurvey**屬於女性的學號)
 
 ```{r ans17}
+
+  
+#hwGradeSubsample$學號 %in% classSurvey$女性學號
+
+# classSurvey %>%
+# {cbind(.$學號, (.$性別=="女性"))}
+#(classSurvey$性別=="女")
+classSurvey$學號[(classSurvey$性別=="女")]-> 女性學號
+
+hwGradeSubsample$女性 <- (hwGradeSubsample$學號 %in%  女性學號)
 ```
 
 ## 1.8 性別與學業表現：男性
 依**hwGradesSubsample**的**平均成績**及**女性**變數來記算出男性的「平均」**平均成績**。(最後一行必需出現此平均值)
 ```{r ans18}
+mean(hwGradeSubsample[(hwGradeSubsample$女性==FALSE),]$平均成績)
+
+# hwGradeSubsample[(hwGradeSubsample$女性==FALSE),]$平均成績
+
+mean(hwGradeSubsample$平均成績[(hwGradeSubsample$女性==FALSE)])
+
+#hwGradeSubsample$女性==FALSE
 ```
 
 > 小知識：資料中女性平均成績表現高於男性近2.39分（滿分10分）
