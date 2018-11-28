@@ -128,6 +128,34 @@ is.na(aaa)
 記算每個人的**交作業次數**並在**hwGrades**新增**交作業次數**變數來儲存結果。(最後一行請打hwGrades顯示你的全部dataframe，批改程式會去比對hwGrades中的**交作業次數**欄位。) (hint: 利用`is.na()`去判斷每個作業是否有交，接著把每個人在三次作業的is.na判斷之TRUE/FALSE值加起來。) 
 
 ```{r ans14}
+hwGrades[,-c(1)] # hwGrades[, c(2:4)]
+
+is.na(hwGrades$hw1) -> aa
+!is.na(hwGrades$hw1) -> bb
+
+hwGrades$交作業次數 <- as.numeric(!is.na(hwGrades$hw1))+
+  as.numeric(!is.na(hwGrades$hw2))+
+  as.numeric(!is.na(hwGrades$Exercise3))
+```
+
+```{r}
+aaa<- c(F,T,F,F)
+bbb<- c(T,F,T,T)
+
+aaa+bbb
+```
+
+```{r}
+hwGrades %>%
+  select(c(2:4)) %>%
+  mutate_all(
+    funs(
+      !is.na(.)
+    )
+  ) -> hwGrades2
+hwGrades2
+
+rowSums(hwGrades2) -> hwGrades2$交作業次數
 ```
 
 ## 1.5 計算平均成績  
