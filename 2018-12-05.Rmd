@@ -70,11 +70,12 @@ paste0("最大值： ",maxNumber, " 最小值： ",minNumber)}
 ```
 
 ```{r}
-minMaxFun(libraryData$讀者借閱冊數)
-
-minMaxFun(libraryData$入學年)
-
-minMaxFun(libraryData$書籍上架年月)
+minMaxFun(libraryData$讀者借閱冊數)-> a1
+a1
+minMaxFun(libraryData$入學年)->a2
+a2
+minMaxFun(libraryData$書籍上架年月)->a3
+a3
 ```
 
 
@@ -87,6 +88,7 @@ return(result)
 }
 ```
 
+
 ```{r}
 minMaxFun3 <- function(x){
 max(x)-> maxNumber
@@ -96,3 +98,12 @@ return(maxNumber)
 }
 ```
 
+
+```{r}
+minMaxFun3(libraryData$讀者借閱冊數)-> a1
+a1
+minMaxFun3(libraryData$入學年)->a2
+a2
+minMaxFun3(libraryData$書籍上架年月)->a3
+a3
+```
