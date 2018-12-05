@@ -36,3 +36,63 @@ libraryData %>%
 
 ```
 
+```{r}
+## 1
+max(libraryData$讀者借閱冊數)-> maxNumber
+min(libraryData$讀者借閱冊數)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+```
+
+
+```{r}
+## 1
+max(libraryData$讀者借閱冊數)-> maxNumber
+min(libraryData$讀者借閱冊數)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 2
+max(libraryData$入學年)-> maxNumber
+min(libraryData$入學年)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 3
+max(libraryData$書籍上架年月)-> maxNumber
+min(libraryData$書籍上架年月)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+```
+
+minMaxFun(x)
+```{r}
+minMaxFun <- function(x){
+max(x)-> maxNumber
+min(x)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)}
+```
+
+```{r}
+minMaxFun(libraryData$讀者借閱冊數)
+
+minMaxFun(libraryData$入學年)
+
+minMaxFun(libraryData$書籍上架年月)
+```
+
+
+```{r}
+minMaxFun2 <- function(x){
+max(x)-> maxNumber
+min(x)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)-> result
+return(result)
+}
+```
+
+```{r}
+minMaxFun3 <- function(x){
+max(x)-> maxNumber
+min(x)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+return(maxNumber)
+}
+```
+
