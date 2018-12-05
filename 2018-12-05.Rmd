@@ -154,3 +154,39 @@ not_numeric<- function(x){
 not_numeric(libraryData$學號)
 ```
 TRUE
+
+### 練習：
+找出屬於"人文學院"的子樣本。
+
+```{r}
+(libraryData$學院=="人文學院")-> logIndex
+libraryData[logIndex,]-> subsample
+```
+
+找出屬於"社會科學院"的子樣本。
+
+```{r}
+(libraryData$學院=="社會科學院")-> logIndex
+libraryData[logIndex,]-> subsample
+```
+
+```{r}
+findMyCollege<-function(x){
+  (libraryData$學院==x)-> logIndex
+libraryData[logIndex,]-> subsample
+return(subsample)
+}
+```
+
+## Grouping and summarise group feature
+```{r}
+## grouping
+findMyCollege("人文學院")-> sample1
+## group feature summary
+nrow(sample1)
+
+
+findMyCollege("社會科學院") -> sample2
+nrow(sample2)
+```
+
