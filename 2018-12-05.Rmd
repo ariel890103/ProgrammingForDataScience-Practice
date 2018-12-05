@@ -107,3 +107,50 @@ a2
 minMaxFun3(libraryData$書籍上架年月)->a3
 a3
 ```
+
+
+```{r}
+minMaxFun4 <- function(x){
+max(x)-> maxNumber
+min(x)-> minNumber
+print(
+  paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+  ) 
+return(maxNumber)
+}
+```
+
+```{r}
+minMaxFun4(libraryData$讀者借閱冊數)-> a1
+a1
+```
+
+###  練習
+
+```{r}
+!is.numeric(libraryData$學號)
+
+!is.numeric(libraryData$書籍類別)
+
+```
+
+```{r}
+
+not_numeric<- function(x){
+  !is.numeric(x)
+}
+```
+
+```{r}
+not_numeric<- function(x){
+  !is.numeric(x) -> result
+  return(result)
+}
+```
+
+
+
+```{r}
+not_numeric(libraryData$學號)
+```
+TRUE
