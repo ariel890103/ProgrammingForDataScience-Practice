@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+author: "林茂廷"
+date: "12/19/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr); library(dplyr); library(stringr); library(lubridate)
+```
+
+
+## data
+
+```{r}
+library(readr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv")
+```
+
