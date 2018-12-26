@@ -29,12 +29,36 @@ plasticContainer <- list(
 plasticContainer["greenBox"] # or plasticContainer[c(1,2)]
 ```
 
+```{r}
+plasticContainer["greenBox"][1]
+```
+
+```{r}
+plasticContainer["greenBox"]$greenBox[1]
+```
+
+```{r}
+plasticContainer["greenBox"][["greenBox"]][1]
+
+```
+
+
+
 
 ```{r}
 plasticContainer[["greenBox"]] # or plasticContainer[[1]]
 ```
 
 ```{r}
+plasticContainer[["greenBox"]][1]
+```
+
+
+```{r}
 plasticContainer$greenBox
+```
+
+```{r}
+plasticContainer$greenBox[1]
 ```
 
