@@ -45,6 +45,17 @@ classSurvey %>%
   ) -> classSurvey; classSurvey
 ```
 
+### 錯誤
+
+```{r, eval=F}
+classSurvey %>%
+  mutate(
+    性別=as.factor(性別),
+    入學年=str_sub(學號,2,4),
+    團隊活動=(課外活動=="團隊活動")
+  ) -> classSurvey; classSurvey
+```
+
 
 ## 1.2 group_by及summarise應用
 
@@ -178,4 +189,30 @@ hwGrades %>%
   )
 ```
 
+## Last part
+
+```{r}
+library(readr)
+transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcript100_102.csv",
+                  col_types = cols(
+                    學期成績="n"
+                  ))
+
+totalCredits<-function(x){
+  transcriptData[transcriptData$學號==x,]->subsample 
+  subsample %>%
+    mutate(
+      及格=(學期成績>=60)
+    ) %>%
+    summarise(
+      學號=學號[1],
+      總修習學分數=sum(學分數),
+      總實得學分數=sum(學分數[及格])
+    )  
+}
+```
+
+```{r}
+
+```
 
