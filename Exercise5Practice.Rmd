@@ -135,7 +135,23 @@ answerList<-map(seq_along(allStudentID),totalCreditsOfStudent_i)
 
 
 ```{r}
-totalCredits
+map(allStudentID,totalCredits)-> answerList2
+```
+
+```{r}
+transcriptData
+```
+
+```{r}
+  transcriptData %>%
+    group_by(學號) %>%
+    mutate(
+      及格=(學期成績>=60)
+    ) %>%
+    summarise(
+      總修習學分數=sum(學分數),
+      總實得學分數=sum(學分數[及格])
+    ) -> finalResult
 ```
 
 ## 1.5 取出系別代號
